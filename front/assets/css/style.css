@@ -1,0 +1,72 @@
+body {
+	padding-top: 50px;
+}
+
+.btn {
+	cursor: pointer;
+}
+
+.menu-list {
+	width: 100%;
+	margin-top: 100px;
+}
+
+.menu-list a {
+	color: #949494;
+	font-weight: 600;
+	transition: .5s;
+}
+
+.menu-list a:hover {
+	color: #555;
+	text-decoration: none;
+}
+
+.menu-list li {
+	transition: .4s;
+}
+
+.menu-list li:hover {
+	transform: scale(1.1);
+}
+
+.card-system {
+	padding: 15px;
+	background: #f7f7f7;
+	border-radius: 5px;
+}
+
+.grey-bg {
+	background: #f7f7f7;
+}
+
+.card-system {
+	max-height: 100vh;
+	min-height: 500px;
+	overflow-y: scroll;
+}
+
+.table td {
+	vertical-align: middle!important;
+}
+
+.modal-footer .btn {
+	transition: .4s;
+}
+
+.modal-footer .btn:hover {
+	transform: scale(1.1);
+}
+
+#modal-new-os .modal-body {
+	max-height: 70vh;
+	overflow-y: scroll;
+}
+
+#modal-new-services textarea {
+	max-height: 124px;
+}
+
+.btn-save-func {
+	margin-top: 31px;
+}
