@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 03/07/2019 às 04:56
+-- Tempo de geração: 09/07/2019 às 21:16
 -- Versão do servidor: 10.1.30-MariaDB
 -- Versão do PHP: 7.2.1
 
@@ -171,6 +171,7 @@ ALTER TABLE `funcionario`
 ALTER TABLE `ordemservico`
   ADD PRIMARY KEY (`Id`),
   ADD KEY `ClienteId` (`ClienteId`),
+  ADD KEY `FormaPagtoId` (`FormaPagtoId`),
   ADD KEY `VeiculoId` (`VeiculoId`);
 
 --
@@ -261,7 +262,9 @@ ALTER TABLE `consumo`
 --
 ALTER TABLE `ordemservico`
   ADD CONSTRAINT `ordemservico_ibfk_1` FOREIGN KEY (`ClienteId`) REFERENCES `cliente` (`Id`),
-  ADD CONSTRAINT `ordemservico_ibfk_2` FOREIGN KEY (`VeiculoId`) REFERENCES `veiculo` (`Id`);
+  ADD CONSTRAINT `ordemservico_ibfk_2` FOREIGN KEY (`VeiculoId`) REFERENCES `veiculo` (`Id`),
+  ADD CONSTRAINT `ordemservico_ibfk_3` FOREIGN KEY (`FormaPagtoId`) REFERENCES `formapagto` (`Id`),
+  ADD CONSTRAINT `ordemservico_ibfk_4` FOREIGN KEY (`VeiculoId`) REFERENCES `veiculo` (`Id`);
 
 --
 -- Restrições para tabelas `servico`
