@@ -22,15 +22,23 @@ import org.json.JSONObject;
  */
 /**
  *
- * @author vitor
+ * @author Vítor Paes
+ *
+ * Classe para construir objeto JSON para retornar no servlet e releitura pelo
+ * sistema em frontEnd Objetivo é pegar o resultset retornado pelo query e
+ * construir um json a partir dele
+ *
  */
 public class jsonConstruct {
 
-    /**
-     * @param os the OutputStream to stream the JSON to
-     */
     private static ResultSetMetaData md;
 
+    /**
+     * Método para converter resultSet em JSON e retornar o JSON
+     *
+     * @return JSONArray
+     * @param ResultSet que vem a partir da consulta no banco de dados
+     */
     public static JSONArray convertToJson(ResultSet rs) {
 
         JSONObject js = new JSONObject();

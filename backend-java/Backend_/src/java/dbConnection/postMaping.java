@@ -23,17 +23,33 @@ import sistema.dao.servicoDAO;
 import sistema.dao.veiculoDAO;
 
 /**
+ * Classe para construir objetos necessários a partir dos parametros vindo do
+ * request
  *
- * @author vitor
+ * @author Vitor Paes
+ * @version 1.0
+ * @since 06/2019
  */
 public class postMaping {
 
     Map<String, String[]> map;
 
+    /**
+     * Métodos para mapeamento e construção de objetos
+     *
+     * @author Vítor Paes
+     * @param Maps(geral) mapas passados pelos requests para construção dos
+     * objetos
+     */
     public postMaping(Map<String, String[]> map) {
         this.map = map;
     }
 
+    /**
+     * Método para construção do objeto forma de pagamento
+     *
+     * @return formaPagamentoDAO
+     */
     public formaPagamentoDAO fpagtoConstruct() {
         formaPagamentoDAO fp = new formaPagamentoDAO();
 
@@ -43,6 +59,11 @@ public class postMaping {
         return fp;
     }
 
+    /**
+     * Método para construção do objeto funcionario
+     *
+     * @return funcionarioDAO
+     */
     public funcionarioDAO funcConstruct() {
         funcionarioDAO fdao = new funcionarioDAO();
 
@@ -54,6 +75,11 @@ public class postMaping {
         return fdao;
     }
 
+    /**
+     * Método para construção do objeto servicoDAO
+     *
+     * @return servicoDAO
+     */
     public servicoDAO serviceConstruct() {
         servicoDAO sdao = new servicoDAO();
 
@@ -66,6 +92,11 @@ public class postMaping {
         return sdao;
     }
 
+    /**
+     * Método para construção do objeto pecaDAO
+     *
+     * @return pecaDAO
+     */
     public pecaDAO pieceConstruct() {
         pecaDAO pdao = new pecaDAO();
 
@@ -76,6 +107,11 @@ public class postMaping {
         return pdao;
     }
 
+    /**
+     * Método para construção do objeto clienteDAO
+     *
+     * @return clienteDAO
+     */
     public clienteDAO clientConstruct() {
 
         clienteDAO cdao = new clienteDAO();
@@ -89,6 +125,11 @@ public class postMaping {
         return cdao;
     }
 
+    /**
+     * Método para construção do objeto veiculoDAO
+     *
+     * @return veiculoDAO
+     */
     public veiculoDAO veiculoConstruct() {
         veiculoDAO v = new veiculoDAO();
 
@@ -100,6 +141,11 @@ public class postMaping {
         return v;
     }
 
+    /**
+     * Método para construção do objeto ordemServicoDAO
+     *
+     * @return ordemServicoDAO
+     */
     public ordemServicoDAO osConstruct() throws ParseException {
 
         ordemServicoDAO os = new ordemServicoDAO();
@@ -114,6 +160,12 @@ public class postMaping {
         return os;
     }
 
+    /**
+     * Método para construção da lista de consumos da ordem de serviço a ser
+     * cadastrada
+     *
+     * @return List<Consumo>
+     */
     private List<Consumo> getConsumos() {
         List<Consumo> list = new ArrayList<Consumo>();
 

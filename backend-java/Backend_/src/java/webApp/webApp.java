@@ -36,8 +36,13 @@ import sistema.dao.servicoDAO;
 import sistema.dao.veiculoDAO;
 
 /**
+ * Classe para requests e responses na aplicação desenvolvida orientada a
+ * objetos BACKEND Solicita os dados ou inseração e é retornado o que foi
+ * operado.
  *
- * @author Vítor
+ * @author Vitor Paes
+ * @version 1.0
+ * @since Começo da aplicação, 05/2019
  */
 @WebServlet(urlPatterns = {"/webApp"})
 public class webApp extends HttpServlet {
@@ -65,6 +70,12 @@ public class webApp extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    /**
+     * Método para realizar os posts requeridos pelo frontend em jquery
+     *
+     *
+     * @return JSON - através do parametro response.
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -90,6 +101,12 @@ public class webApp extends HttpServlet {
 
     }
 
+    /**
+     * Método para realizar os gets requeridos pelo frontend em jquery
+     *
+     *
+     * @return JSON - através do parametro response.
+     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -118,6 +135,11 @@ public class webApp extends HttpServlet {
 
     }
 
+    /**
+     * Método para redirecionar a rota passada pelo doGet
+     *
+     * @return JSONArray - json com o que foi buscado no banco de dados.
+     */
     private JSONArray redirectRouteGET(String type, String method, String params) {
 
         JSONArray ret = null;
@@ -160,6 +182,12 @@ public class webApp extends HttpServlet {
 
     }
 
+    /**
+     * Método para redirecionar a rota passada pelo doPost
+     *
+     * @return JSONArray - json com o que foi buscado/inserido no banco de
+     * dados.
+     */
     private JSONArray redirectRoutePOST(Map<String, String[]> map) throws ParseException {
 
         postMaping pm = new postMaping(map);
@@ -208,6 +236,13 @@ public class webApp extends HttpServlet {
 
     }
 
+    /**
+     * Método setar os cabeçalhos para que a aplicação seja acessível pelo
+     * frontEnd
+     *
+     * @return void - apenas para setar os cabeçalhos do response, que é
+     * retornado depois.
+     */
     private void setCors(HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Access-Control-Max-Age", "3600");

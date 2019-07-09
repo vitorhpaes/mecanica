@@ -18,7 +18,15 @@ import sistema.OrdemServico;
 
 /**
  *
- * @author Yan
+ * @author Vítor Paes
+ *
+ * @version 1.0
+ *
+ * Classe para manipulação e busca dos dados de ordem de serviço no banco de
+ * dados através das duas outras classes
+ * @see pdoCrud;
+ * @see pdoQuery;
+ *
  */
 public class ordemServicoDAO extends OrdemServico {
 

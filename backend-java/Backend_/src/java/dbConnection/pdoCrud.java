@@ -12,17 +12,41 @@ import java.sql.Statement;
 
 /**
  *
- * @author vitor
+ * @author Vítor Paes
+ *
+ * Classe para manipulação de dados no banco de dados, busquei generalizar os
+ * inserts, updates e removes Serve para tornar mais rápido o cadastro de
+ * objetos no banco, sem precisar criar um SQL para cada um Assim como atualizar
+ * e remover a partir de IDs
+ *
  */
 public class pdoCrud {
 
     public static Conn connection = new Conn();
     public static java.sql.Statement stmt;
 
+    /**
+     * Método de instanciação da conexão com o banco de dados
+     *
+     * @return pdoCrud, classe final
+     * @throws SQLException
+     */
     public pdoCrud() throws SQLException {
         this.stmt = this.connection.getConexaoMySQL().createStatement();
     }
 
+    /**
+     * Método de insert, insere dados quando se passa as colunas e valores, e
+     * então a tabela a partir de um SQL padrão construído
+     *
+     * @params String table -> tabela em que será feita a inserção
+     * @params String cols -> colunas da tabela em que será feita a inserção
+     * @params String values -> valores da inserção que será feita no banco
+     *
+     *
+     * @return Long, tipo de dado que vem do Id
+     * @throws SQLException
+     */
     public Long insert(String table, String cols, String values) throws SQLException {
         Boolean ret = false;
         String sql = "insert into " + table + "(" + cols + ") values (" + values + ")";
@@ -45,6 +69,17 @@ public class pdoCrud {
 
     }
 
+    /**
+     * Método de update, que será feito a partir do SQL genérico
+     *
+     * @params String table -> tabela em que será feita o update
+     * @params String values -> colunas + valores da atualização
+     * @params String conditions -> condição para atualizações que serão
+     * realizadas
+     *
+     *
+     * @return Boolean
+     */
     public Boolean update(String table, String values, String condition) {
         Boolean ret = false;
         String sql = "update " + table + " set " + values + " " + condition;
@@ -61,6 +96,15 @@ public class pdoCrud {
         return ret;
     }
 
+    /**
+     * Método de delete, que será feito a partir do SQL genérico
+     *
+     * @params String table -> tabela em que será feita o delete
+     * @params String conds -> condições para deletar elementos no banco de
+     * dados (WHERE ....)
+     *
+     * @return Boolean
+     */
     public Boolean deleteCondition(String table, String cond) {
 
         Boolean ret = false;
@@ -79,6 +123,16 @@ public class pdoCrud {
 
     }
 
+    /**
+     * Método de delete, que será feito a partir do SQL genérico a partir do ID
+     * de algum item
+     *
+     * @params String table -> tabela em que será feita o update
+     * @params int id -> qual é o Id do objeto a ser excluído
+     *
+     *
+     * @return Boolean
+     */
     public Boolean deleteId(String table, int id) {
 
         Boolean ret = false;

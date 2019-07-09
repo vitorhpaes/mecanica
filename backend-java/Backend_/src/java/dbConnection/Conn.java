@@ -12,16 +12,34 @@ import java.sql.Statement;
 
 /**
  *
- * @author vitor
+ * @author Vítor Paes
+ *
+ * Classe que faz a conexão e retorna o status da mesma com o banco de dados
+ *
  */
 public class Conn {
 
     public static String status = "Não conectado";
 
+    /**
+     *
+     * Método que instancia a classe
+     *
+     * @return connection
+     *
+     */
     public Conn() {
 
     }
 
+    /**
+     *
+     * Método para testar a conexão sem precisar rodar o sistema completo e ter
+     * o retorno no console
+     *
+     * @return void
+     *
+     */
     public static void main(String[] args) {
 
         Conn con = new Conn();
@@ -30,7 +48,14 @@ public class Conn {
 
     }
 
-    //Método de Conexão//
+    /**
+     *
+     * Método para conectar com o banco de dados (todos os dados já estão
+     * inseridos nestas linhas)
+     *
+     * @return sql.connection
+     *
+     */
     public static java.sql.Connection getConexaoMySQL() {
 
         Connection connection = null;          //atributo do tipo Connection
@@ -84,14 +109,26 @@ public class Conn {
 
     }
 
-    //Método que retorna o status da sua conexão//
+    /**
+     *
+     * Método que retorna o status da conexão com o banco neste momento
+     *
+     * @return String
+     *
+     */
     public static String statusConection() {
 
         return status;
 
     }
 
-    //Método que fecha sua conexão//
+    /**
+     *
+     * Método que fecha a conexão
+     *
+     * @return booelan
+     *
+     */
     public static boolean FecharConexao() {
 
         try {
@@ -108,7 +145,13 @@ public class Conn {
 
     }
 
-    //Método que reinicia sua conexão//
+    /**
+     *
+     * Método que renicia a conexão com o banco de dados no sistema
+     *
+     * @return sql.connection
+     *
+     */
     public static java.sql.Connection ReiniciarConexao() {
 
         FecharConexao();
